@@ -11,6 +11,7 @@ export const BlogPostProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
+  console.log(API_URL)
   const getBlogPosts = async () => {
     setIsLoading(true);
     setError("");
