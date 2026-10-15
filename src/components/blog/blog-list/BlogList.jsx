@@ -15,15 +15,15 @@ const BlogList = () => {
         </div>
       )}
       {error && !isLoading && <Alert variant="danger">{error}</Alert>}
-      {blogPostData.map((post, index) => (
+      {blogPostData.map((post) => (
         <Col
-          key={`item-${index}`}
+          key={post._id}
           md={4}
           style={{
             marginBottom: 50,
           }}
         >
-          <BlogItem key={post.title} {...post} />
+          <BlogItem key={post} />
         </Col>
       ))}
     </Row>

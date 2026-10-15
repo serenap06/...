@@ -11,7 +11,6 @@ export const BlogPostProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  console.log(API_URL)
   const getBlogPosts = async () => {
     setIsLoading(true);
     setError("");
@@ -27,12 +26,12 @@ export const BlogPostProvider = ({ children }) => {
       if (!response.ok) {
         throw new Error("Impossibile recuperare i post");
       }
-      const data = await response.json();
-      if (Array.isArray(data.blogPosts)) {
-        setBlogPostData(data.blogPosts);
+      const dataPosts = await response.json();
+      if (Array.isArray(dataPosts.blogPosts)) {
+        setBlogPostData(dataPosts.blogPosts);
       } else {
         setBlogPostData([]);
-        console.log("Formato dati non riconosciuto",data);
+        console.log("Formato dati non riconosciuto",dataPosts);
       }
     } catch (e) {
       console.error(e);
