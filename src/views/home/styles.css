@@ -1,11 +1,8 @@
-.container-sm {
-  padding-top: 110px !important;
-}
 
 .blog-main-title {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: bolder;
   margin-top: 50px;
   margin-bottom: 50px;
-  color: #00d66f;
+  color: #008645;
 }

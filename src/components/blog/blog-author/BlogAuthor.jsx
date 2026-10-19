@@ -6,13 +6,12 @@ const BlogAuthor = ({author}) => {
 if(!author) return null
 
   return (
-    <Row>
+    <Row className="row-author">
       <Col xs={"auto"} className="pe-0">
-        <Image className="blog-author" src={author.avatar} roundedCircle />
+        <Image className="avatar-author" src={author.avatar} roundedCircle />
       </Col>
       <Col>
-        <div>di</div>
-        <h6>{author.name}</h6>
+        <h4>{author.name}</h4>
       </Col>
     </Row>
   );

@@ -1,4 +1,10 @@
-.blog-author {
-  width: 40px;
-  height: 40px;
+.avatar-author {
+  width: 20px;
+  height: 20px;
+
+}
+.row-author{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }

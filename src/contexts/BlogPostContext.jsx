@@ -1,6 +1,7 @@
 //import
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { API_URL } from "../services/api";
+import { AuthContext } from "./AuthContext";
 
 //context
 export const BlogPostContext = createContext();
@@ -10,13 +11,12 @@ export const BlogPostProvider = ({ children }) => {
   const [blogPostData, setBlogPostData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const { token } = useContext(AuthContext);
   const getBlogPosts = async () => {
     setIsLoading(true);
     setError("");
 
     try {
-      const token = localStorage.getItem("token");
       const response = await fetch(`${API_URL}/blogPosts`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ export const BlogPostProvider = ({ children }) => {
         setBlogPostData(dataPosts.blogPosts);
       } else {
         setBlogPostData([]);
-        console.log("Formato dati non riconosciuto",dataPosts);
+        console.log("Formato dati non riconosciuto", dataPosts);
       }
     } catch (e) {
       console.error(e);
